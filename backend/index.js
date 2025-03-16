@@ -8,13 +8,20 @@ import UserRoute from "./routes/user.routes.js";
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;  
 
-
-app.use(cors());
-
-const PORT = process.env.PORT || 3000;  // Ensure a default port if `process.env.PORT` is undefined
-
+// Connect to the database
 Connectdb();
+
+// CORS Configuration
+app.use(
+    cors({
+        origin: process.env.CLIENT_URL || "http://localhost:5173", // Replace with frontend URL
+        credentials: true, // Allow cookies and authorization headers
+        methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+        allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    })
+);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -24,7 +31,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to the Image Generator API!");
 });
 
-// Route for API
+// Routes
 app.use("/api", apiRoute);
 app.use("/api", UserRoute);
 
