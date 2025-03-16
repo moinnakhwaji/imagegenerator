@@ -16,7 +16,7 @@ Connectdb();
 // CORS Configuration
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || "http://localhost:5173", // Replace with frontend URL
+        origin: "https://imagegenerator-blush.vercel.app" || "http://localhost:5173", // Replace with frontend URL
         credentials: true, // Allow cookies and authorization headers
         methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
         allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
