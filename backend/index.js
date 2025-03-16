@@ -17,7 +17,7 @@ const corsOptions = {
 };
 
 // Apply CORS middleware before defining routes
-app.use(cors());
+app.use(cors("*"));
 const PORT = process.env.PORT || 3000;  // Ensure a default port if `process.env.PORT` is undefined
 
 Connectdb();
