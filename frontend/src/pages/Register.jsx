@@ -18,7 +18,7 @@ const register = () => {
     // call backend api
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/register",
+        `${import.meta.env.VITE_BASE_BACKEND_KEY}/api/register`,
         data,
         { withCredentials: true }
       );
