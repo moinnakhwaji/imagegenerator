@@ -8,7 +8,7 @@ const AllImages = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/image", {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_KEY}/api/image`, {
           withCredentials: true,
         });
 

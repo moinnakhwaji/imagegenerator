@@ -36,7 +36,7 @@ const CreateImage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/create",
+        `${import.meta.env.VITE_BASE_BACKEND_KEY}/api/create`,
         {
           prompt: generatedPrompt,
           userId: user?._id,
