@@ -9,15 +9,9 @@ dotenv.config();
 
 const app = express();
 
-const corsOptions = {
-    origin: "http://localhost:5173",
-    credentials: true,
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Authorization"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-};
 
-// Apply CORS middleware before defining routes
-app.use(cors("*"));
+app.use(cors());
+
 const PORT = process.env.PORT || 3000;  // Ensure a default port if `process.env.PORT` is undefined
 
 Connectdb();
