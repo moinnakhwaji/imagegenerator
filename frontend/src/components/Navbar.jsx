@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3000/api/logout", {}, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_BASE_BACKEND_KEY}/api/logout`, {}, { withCredentials: true });
       localStorage.removeItem("token"); // Clear token
       window.location.reload(); // Reload page to reset authentication state
     } catch (error) {

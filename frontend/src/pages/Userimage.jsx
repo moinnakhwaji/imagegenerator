@@ -55,7 +55,7 @@ const Userimage = () => {
             ))}
           </div>
         ) : (
-          <p className="text-gray-400 text-center">No images available</p>
+          <p className="text-gray-400 text-center">Loading...</p>
         )}
       </div>
     </div>
