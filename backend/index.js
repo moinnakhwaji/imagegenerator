@@ -4,7 +4,7 @@ import apiRoute from "./routes/api.routes.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import UserRoute from "./routes/user.routes.js"
-dotenv.config({ path: '.env.local' });
+dotenv.config();
 
 const app = express();
 
@@ -19,7 +19,7 @@ const corsOptions = {
 
 // Apply CORS middleware before defining routes
 app.use(cors(corsOptions));
-
+const PORT = process.env.PORT
 
 Connectdb();
 
@@ -31,6 +31,6 @@ app.use("/api", apiRoute);
 app.use("/api", UserRoute);
 
 // Start the server
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
