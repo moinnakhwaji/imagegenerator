@@ -8,15 +8,17 @@ import UserRoute from "./routes/user.routes.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;  
+const PORT = process.env.PORT || 3000;
 
 // Connect to the database
 Connectdb();
 
-// CORS Configuration
+// CORS Configuration - Allows all origins dynamically
 app.use(
     cors({
-        origin: "https://imagegenerator-blush.vercel.app" || "http://localhost:5173", // Replace with frontend URL
+        origin: (origin, callback) => {
+            callback(null, origin || "*"); // Allow all origins
+        },
         credentials: true, // Allow cookies and authorization headers
         methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
         allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
